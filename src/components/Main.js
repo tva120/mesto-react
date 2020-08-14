@@ -1,12 +1,12 @@
 import React from 'react';
-import api from '../utils/Api';
+import api from '../utils/api';
 import Card from './Card';
 
 
 function Main(props) {
     const [userName, setUserName] = React.useState('unknown');
     const [userDescription, setUserDescription] = React.useState('not found');
-    const [userAvatar, setUserAvatar] = React.useState('no pic');
+    const [userAvatar, setUserAvatar] = React.useState();
     const [cards, setCards] = React.useState([]);
 
     React.useEffect(() => {
@@ -15,7 +15,7 @@ function Main(props) {
                 setUserName(userData.name);
                 setUserDescription(userData.about);
                 setUserAvatar(userData.avatar);
-                setCards([...initialCards]);
+                setCards(initialCards);
             })
             .catch(err => console.log(err));
     }, [])
@@ -25,7 +25,7 @@ function Main(props) {
         <main className="content">
             <section className="profile">
                 <div className="profile__content">
-                    <div class="profile__avatar-pics">
+                    <div className="profile__avatar-pics">
                         <img src={userAvatar} className="profile__avatar" alt="Жак-Ив Кусто" />
                         <button className="profile__edit" onClick={props.onEditAvatar}></button>
                     </div>

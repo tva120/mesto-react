@@ -11,7 +11,7 @@ function Card(props) {
             <img className="element__image" alt="" src={props.card.link} onClick={handleClick} />
 
 
-            <div class="element__places">
+            <div className="element__places">
                 <h2 className="element__place">{props.card.name}</h2>
                 <div className="element__likeblock">
                     <button className="element__button"></button>

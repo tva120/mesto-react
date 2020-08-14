@@ -72,12 +72,12 @@ function App() {
                     children={
                         <>
                             <input className="popup-container__infoform popup-container__infoform_author" name="author" id="author-input"
-                            type="text" placeholder="Автор" required minlength="2" maxlength="40" pattern="[A-Za-zА-ЯЁа-яё -]{1,}"/>
+                            type="text" placeholder="Автор" required minLength="2" maxLength="40" pattern="[A-Za-zА-ЯЁа-яё -]{1,}"/>
 
                             <span className="popup__error" id="author-input-error"></span>
 
                             <input className="popup-container__infoform popup-container__infoform_about" name="about" id="about-input"
-                            type="text" placeholder="О себе" required minlength="2" maxlength="200"/> 
+                            type="text" placeholder="О себе" required minLength="2" maxLength="200"/> 
 
                             <span className="popup__error" id="about-input-error"></span>      
                         </>
@@ -89,7 +89,7 @@ function App() {
                         <>
                             
                             <input className="popup-container__infoform popup-container__infoform_place-name" name="place-name" id="place-input"
-                            type="text" placeholder="Название" required minlength="1" maxlength="30" />
+                            type="text" placeholder="Название" required minLength="1" maxLength="30" />
 
                             <span className="popup__error" id="place-input-error"></span>
 

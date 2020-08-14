@@ -11,17 +11,12 @@ export class Api{
             return res.json();
           }
           return Promise.reject(`Ошибка: ${res.status}`);
-        });
+        }).catch(err => console.log(`Загрузка информации о пользователе: ${err}`))
     }
 
     getInitialCards(){
        return fetch(`${this.baseUrl}/cards`, {headers: this.headers})
-       .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+       .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)).catch(err => console.log(`Загрузка карточек: ${err}`));
     }
 
     changeProfileInfo(input){
@@ -40,7 +35,7 @@ export class Api{
           return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      }).catch(err => console.log(`Изменение информации: ${err}`));
     }
 
 
@@ -60,7 +55,7 @@ export class Api{
           return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      }).catch(err => console.log(`Добавление карточки: ${err}`));
     }
 
     putLike(cardId){
@@ -70,7 +65,7 @@ export class Api{
           return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      }).catch(err => console.log(`Лайк: ${err}`));
     }
 
     deleteLike(cardId){
@@ -80,7 +75,7 @@ export class Api{
           return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      }).catch(err => console.log(`Дизлайк: ${err}`));
     }
 
     changeAvatar(input){
@@ -98,7 +93,7 @@ export class Api{
           return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      }).catch(err => console.log(`Аватар: ${err}`));
     }
 
     deleteCard(cardId){
@@ -108,7 +103,7 @@ export class Api{
           return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      }).catch(err => console.log(`Удаление: ${err}`));
     }
 }
 
