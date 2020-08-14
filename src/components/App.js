@@ -11,7 +11,7 @@ function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-    const [isDeleteCardPopupOpen, setIsDeleteCardPopupOpen] = React.useState(false);
+
     const [selectedCard, setSelectedCard] = React.useState({
         isOpen: false,
         link: '',
@@ -30,9 +30,6 @@ function App() {
         setIsAddPlacePopupOpen(true);
     }
 
-    function handleDeleteCardClick() {
-        setIsDeleteCardPopupOpen(true);
-    }
 
     function handleCardClick(props) {
         setSelectedCard({
@@ -104,7 +101,7 @@ function App() {
                     }
                 />
 
-                <PopupWithForm title="Вы уверены?" name="delete" buttonName="Да" isOpen={isDeleteCardPopupOpen} onClose={closeAllPopups} />
+                <PopupWithForm title="Вы уверены?" name="delete" buttonName="Да" isOpen={false} onClose={closeAllPopups} />
 
                 <ImagePopup card={selectedCard} onClose={closeAllPopups} />
                 <Footer />
