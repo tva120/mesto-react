@@ -4,20 +4,22 @@ export class Api{
         this.headers = options.headers;
     }
 
-    getUserInfo(){
-      return fetch(`${this.baseUrl}/users/me`, {headers: this.headers})
-        .then(res => {
-          if (res.ok) {
-            return res.json();
-          }
-          return Promise.reject(`Ошибка: ${res.status}`);
-        }).catch(err => console.log(`Загрузка информации о пользователе: ${err}`))
-    }
+
 
     getInitialCards(){
        return fetch(`${this.baseUrl}/cards`, {headers: this.headers})
        .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)).catch(err => console.log(`Загрузка карточек: ${err}`));
     }
+
+    getUserInfo(){
+        return fetch(`${this.baseUrl}/users/me`, {headers: this.headers})
+          .then(res => {
+            if (res.ok) {
+              return res.json();
+            }
+            return Promise.reject(`Ошибка: ${res.status}`);
+          }).catch(err => console.log(`Загрузка информации о пользователе: ${err}`))
+      }
 
     changeProfileInfo(input){
       return fetch(`${this.baseUrl}/users/me`,
